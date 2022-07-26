@@ -1,0 +1,33 @@
+<div class="container my-5" id="content">
+    <div class="subjects">
+        <div class="spacer"></div>
+        <h2>Môn học</h2>
+    </div>
+    <div class="row">
+        <div class="col-6 subjects-item" ng-repeat="item in list_subject">
+            <div class="subjects-item-image">
+                <img src="images/logos/{{item.Logo}}" width="130px">
+            </div>
+            <div class="subjects-item-text">
+                <div class="subjects-item-text-main">
+                    <div>
+                        <div>{{item.Name}}</div>
+                        <div class="subjects-item-title-subtext">Test online - Chắc kiến thức, vững tương lai</div>
+                    </div>
+                    <a class="btn btn-primary-gradient" href="#!quiz/{{item.Id}}/{{item.Name}}" role="button">test ngay</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+        
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <a class="btn btn-outline-primary grad" href="subjects.html" role="button">Xem tất cả môn
+                học</a>
+        </div>
+    </div>
+</div>

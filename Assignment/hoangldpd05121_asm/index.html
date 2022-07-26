@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Cao đẳng FPT Polytechnic</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Angular JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <!-- Icon -->
+    <link rel="stylesheet" href="fontawesome-free-6.0.0-beta3-web/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/quiz.css">
+    <!-- JS -->
+    <script src="db/angular-route.js"></script>
+    <script src="js/quiz.js"></script>
+
+    <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.min.css">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/admin.css">
+  <!-- Angular JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <!-- Icon -->
+  <link rel="stylesheet" href="fontawesome-free-6.0.0-beta3-web/css/all.min.css">
+  <!-- CSS -->
+  
+  <!-- JS -->
+  </head>
+  <body ng-app="myapp">
+    <div class="container">
+
+        <header>
+          <img src="images/Banner-AP.png" width="100%"/>
+        </header>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#/!"> FPT Polytechnic</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="#/!"><i class="fas fa-home"></i> Trang chủ<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html"><i class="fas fa-list-alt"></i> Giới thiệu</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html"><i class="fas fa-phone"></i> Liên hệ</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="feedback.html"><i class="far fa-envelope"></i> Góp ý</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="q&a.html"><i class="far fa-question-circle"></i> Hỏi đáp</a>
+                </li>
+              </ul>
+
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="far fa-user"></i> Tài khoản
+                  </a>
+
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="login.html">Đăng nhập</a>
+                    <a class="dropdown-item" href="signup.html">Đăng ký</a>
+                    <a class="dropdown-item" href="forgot.html">Quên mật khẩu</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" ng-click="login.html">Đăng xuất</a>
+                    <a class="dropdown-item" href="change.html">Đổi mật khẩu</a>
+                    <a class="dropdown-item" href="update.html">Cập nhật tài khoản</a>
+                  </div>
+                </li>
+              </ul>
+               <div class="dropdown show">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown link
+          </a>
+        
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div>
+            </div>
+        </nav>
+
+        <div class="row">
+          <article class="col-sm-9">
+            <div ng-view></div>
+          </article>
+  
+          <aside class="col-sm-3 mt-4">
+            <div class="card">
+              <div class="card" data-toggle="collapse" href="#chungloai">
+                <div class="card-header" style="cursor: pointer;">
+                  <span class="glyphicon glyphicon-th-list"></span>
+                  <i class="fas fa-list"></i><strong> Danh mục môn học</strong>
+                </div>
+
+                <div class="list-group" id="chungloai">
+                  <a href="#" class="list-group-item">Lập trình Android nâng cao</a>
+                  <a href="#" class="list-group-item">Xây dựng trang web</a>
+                  <a href="#" class="list-group-item">Cơ sở dữ liệu</a>
+                  <a href="#" class="list-group-item">SQL Server</a>
+                  <a href="#" class="list-group-item">Internet Marketing</a>
+                  <a href="#" class="list-group-item">Lập trình hướng đối tượng với Java</a>
+                  <a href="#" class="list-group-item">Lập trình PHP</a>
+                  <a href="#" class="list-group-item">Điện toán đám mây</a>
+                  <a href="#" class="list-group-item">Lập trình Android cơ bản</a>
+                  <a href="#" class="list-group-item">Lập trình game 2D</a>
+                  <a href="#" class="list-group-item">Thiết kế giao diện trên Android</a>
+                  <a href="#" class="list-group-item">Thiết kế web cho điện thoại di động
+                  <a href="#" class="list-group-item">Lập trình ASP.NET</a>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </aside>  
+        </div>
+
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center mt-4">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+
+        <footer class="text-center text-white" style="background-color: #f1f1f1;">
+        <!-- Copyright -->
+          <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2021 Copyright:
+            <a class="text-dark" href="https://caodang.fpt.edu.vn/" target="page">FPT Polytechnic</a>
+          </div>
+        <!-- Copyright -->
+        </footer>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+  </body>
+</html>

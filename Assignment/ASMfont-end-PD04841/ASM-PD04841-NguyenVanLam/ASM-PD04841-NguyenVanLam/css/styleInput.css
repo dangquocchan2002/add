@@ -1,0 +1,17 @@
+div.md-form {
+    height: 70px;
+}
+
+div.md-form input.ng-invalid {
+    background-image: url(../img/fail.gif) !important;
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+div.md-form input.ng-valid {
+    background-image: url(../img/true.gif) !important;
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: contain;
+}

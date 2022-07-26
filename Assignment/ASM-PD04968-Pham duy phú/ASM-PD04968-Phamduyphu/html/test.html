@@ -1,0 +1,104 @@
+<style>
+    body {
+        background-image: url(img/login.gif);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+</style>
+<!-- alert -->
+<div class="modal fade" id="modalLRFormDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog cascading-modal modal-avatar modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img src="img/sure.gif" class="rounded-circle img-fluid">
+            </div>
+            <div class="modal-body text-center mb-1">
+                <div class="h3 text-center py-2">
+                    Bạn đã chắc chắn với đáp án?
+                </div>
+                <div class="row p-0">
+                    <button type="button" class="btn btn-primary waves-effect col-lg-6 m-0" data-dismiss="modal">Không</button>
+                    <button ng-click="mark(); elem[indexQ].sub = 0" class="btn btn-info waves-effect col-lg-6 m-0" data-dismiss="modal">Có <i class="fas fa-sign-in-alt ml-1"></i></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- alert -->
+<section class="mb-0">
+    <div class="card card-cascade cascading-admin-card rgba-white-strong">
+
+        <div class="admin-up">
+            <i style="width: 200px;" class="fab fa-algolia peach-gradient mr-3 z-depth-2"> &ensp; {{(timer-timer%60)/60}}:{{timer%60}}</i>
+            <div class="data">
+                <p class="text-uppercase">Điểm</p>
+                <h4 class="font-weight-bold dark-grey-text">{{testMark}} đ</h4>
+            </div>
+        </div>
+
+        <div class="card-body card-body-cascade">
+            <h5 class="p-2 my-0 white font-weight-bold rounded-top">Thời gian làm bài:</h5>
+            <div class="my-0 md-progress">
+                <div class="progress-bar" role="progressbar" style="width: {{timer/900*100}}%"></div>
+            </div>
+            <div class="jumbotron rounded-bottom py-4 px-5 text-center text-md-left author-box wow fadeIn" data-wow-delay="0.3s" style="min-height: 440px;">
+                <hr>
+                <h4 class="h3-responsive text-center font-weight-bold dark-grey-text">Bài thi: {{subject.Name}}</h4>
+                <hr>
+                <div class="row">
+                    <div class="col-12 col-md-2 mb-md-0 mb-4">
+                        <img src="img/logos/ADAV.jpg" class="img-fluid rounded-circle z-depth-2">
+                    </div>
+                    <div class="col-12 col-md-10">
+                        <h5 class="font-weight-bold dark-grey-text mb-3">
+                            <strong>{{indexQ+1+'. '+questions[indexQ].Text}}</strong>
+                        </h5>
+                        <form name="formTest" class="{{(elem[indexQ].sub==0)?'disabled':''}}" style="{{(elem[indexQ].sub==0)?'background-image: url(img/done.png);background-position: center;background-repeat: no-repeat;background-size: contain;':''}}">
+                            <fieldset ng-repeat="an in questions[indexQ].Answers" class="form-check mb-2">
+                                <input ng-model="elem[indexQ].answer" class="form-check-input" name="bgroup" type="radio" id="{{'an'+$index}}" value="{{an.Id}}" required>
+                                <label class="form-check-label" for="{{'an'+$index}}">{{an.Text}}</label>
+                            </fieldset>
+                            <button ng-disabled="elem[indexQ].sub==0 || formTest.bgroup.$invalid" type="button" class="btn btn-primary float-right mt-4" data-toggle="modal" data-target="#modalLRFormDemo">Trả lời
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <nav class="d-flex justify-content-center">
+                <ul class="pagination my-0">
+                    <li ng-click="move(0)" class="page-item {{(indexQ+1 == 1)?'disabled':''}}"><a class="page-link">First</a></li>
+                    <li class="page-item {{(indexQ+1 == 1)?'disabled':''}}">
+                        <a ng-click="move(indexQ-1)" class="page-link" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+
+                    <li ng-hide="indexQ+1 <= 4" class="page-item"><a class="page-link">...</a></li>
+                    <li class="page-item" ng-repeat="x in questions">
+                        <a ng-click="move($index)" ng-if="$index > indexQ-4 && $index < indexQ+4" class="waves-effect rounded page-link {{($index==indexQ)?'red white-text':''}}">{{$index+1}}</a>
+                    </li>
+                    <li ng-hide="indexQ+1 >= questions.length-3" class="page-item"><a class="page-link">...</a></li>
+
+                    <li class="page-item {{(indexQ+1 == questions.length)?'disabled':''}}">
+                        <button ng-click="move(indexQ+1)" class="page-link" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </button>
+                    </li>
+                    <li ng-click="move(questions.length-1)" class="page-item {{(indexQ+1 == questions.length)?'disabled':''}}"><a class="page-link">Last</a></li>
+                </ul>
+
+            </nav>
+            <div class="">
+                <button ng-click="finish()" class="btn btn-danger">Kết thúc bài kiểm tra</button>
+            </div>
+        </div>
+
+    </div>
+
+
+</section>

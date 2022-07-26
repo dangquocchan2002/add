@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Bai2 Lab7</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="Prods.js"></script>
+
+</head>
+  <body ng-app="myapp">
+    <div class="container"  > 
+        <div ng-controller="myctrl">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    DANH SÁCH HÀNG HÓA
+                </div>
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                        <tr>
+                            <th>SẢN PHẨM</th>
+                            <th>ĐƠN GIÁ</th>
+                            <th>GIẢM GIÁ</th>
+                            <th>NGÀY</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="p in products">
+                            <td>{{p.name|uppercase}}</td>
+                            <td>{{p.price|currency}}</td>
+                            <td>{{p.discount|percentage:2}}</td>
+                            <td>{{p.date|date:"MMMM-dd, yyyy"}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    
+    <script>
+        var app = angular.module("myapp", []);
+        app.controller("myctrl", function ($scope, $http){
+            $scope.products = list;
+        });
+        app.filter('percentage', function ($filter){
+            return function (input, decimals){
+                return $filter('number')(input *100, decimals) + '%';
+            };
+        });
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

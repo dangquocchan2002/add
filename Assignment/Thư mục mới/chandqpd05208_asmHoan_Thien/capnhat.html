@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Cập nhật</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="styledangki.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Angular JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <!-- Icon -->
+    <link rel="stylesheet" href="fontawesome-free-6.0.0-beta3-web/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="styledangnhap.css">
+
+    <script src="js/login.js"></script>
+    <script src="js/angular-route.js"></script>
+
+    <!-- Bootstrap CSS -->
+  </head>
+  <body ng-app="myapp">
+      
+        <div class="center">
+      
+      <div class="container" ng-controller="mylogin">
+        
+        <div class="center">
+          <!-- <div class="trangchu"> <a href="dangnhapmoi.html">Đăng nhập</a> </div> -->
+          
+          <div class="title"><h2>Cập nhật</h2></div>
+          
+          <form action="#">
+              <div class="user-details">
+                  <div class="input-box">
+                      <span class="details">Full name</span>
+                      <input type="text" placeholder="Enter your name" required ng-model="fullname">
+                  </div>
+                  <div class="input-box">
+                    <span class="details">UserName</span>
+                    <input type="text" placeholder="Enter your username" required ng-model="username">
+                </div>
+                <div class="input-box">
+                    <span class="details">Email</span>
+                    <input type="email" placeholder="Enter your email" required ng-model="email">
+                </div>
+                <div class="input-box">
+                    <span class="details">Birth day</span>
+                    <input type="date" placeholder="Enter your birth day" required ng-model="birthday">
+                </div>
+                <div class="input-box">
+                    <span class="details">Password</span >
+                    <input type="password" placeholder="Enter your password" required ng-model="password">
+                </div>
+                <div class="input-box">
+                    <span class="details">Confirm Password</span>
+                    <input type="password" placeholder="Confirm Password" required ng-model="confirm_password">
+                </div>
+              </div>
+              <div class="gender-details">
+                  <input type="radio" name="gender" id="dot-1">
+                  <input type="radio" name="gender" id="dot-2">
+                  <span class="gender-title">Gender</span>
+                  <div class="category">
+                      <label for="dot-1">
+                          <span class="dot one"></span>
+                          <span class="gender">Male</span>
+                      </label>
+                      <label for="dot-2">
+                        <span class="dot two"></span>
+                        <span class="gender">Female</span>
+                    </label>
+                  </div>
+              </div>
+              <div class="button">
+                  <input type="submit" ng-click="update()" value="Update">
+              </div>
+          </form>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

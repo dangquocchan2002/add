@@ -1,0 +1,99 @@
+<style>
+    body {
+        background-image: url(img/hb.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+</style>
+<section>
+    <div class="col-lg-8 m-auto">
+        <div class="card card-cascade narrower">
+
+            <div class="view view-cascade gradient-card-header" style="background-image: url(img/H4tz.gif); background-position: center;background-repeat: no-repeat;background-size: cover;">
+
+                <h2 class="card-header-title">Đăng ký</h2>
+                <p>Đăng kí nếu bạn chưa có tài khoản</p>
+
+            </div>
+
+            <div class="card-body card-body-cascade p-5" ng-init="studentR.gender='true';studentR.marks='0'">
+
+                <form name="frmRegister">
+                    <div class="md-form md-outline">
+                        <i class="fas fa-user prefix indigo-text"></i>
+                        <input name="username" ng-model="studentR.username" type="text" id="username" class="form-control border-indigo" required minlength="6">
+                        <label class="bg-white indigo-text rounded px-2 ml-5" for="username"><strong>Tên đăng ký (tài khoản)</strong></label>
+                        <small ng-show="frmRegister.username.$error.required" class="form-text text-danger">Vui lòng nhập tên tài khoản</small>
+                        <small ng-show="frmRegister.username.$error.minlength" class="form-text text-danger">Tên tài khoản phải hơn 6 kí tự</small>
+                    </div>
+
+                    <div class="md-form md-outline">
+                        <i class="fas fa-lock prefix indigo-text"></i>
+                        <input minlength="6" name="password" ng-model="studentR.password" type="password" id="password" class="form-control border-indigo" required>
+                        <label class="bg-white indigo-text rounded px-2 ml-5" for="password"><strong>Mật khẩu</strong></label>
+                        <small ng-show="frmRegister.password.$error.required" id="password" class="form-text text-danger">Vui lòng nhập mật khẩu</small>
+                        <small ng-show="frmRegister.password.$error.minlength" id="password" class="form-text text-danger">Mật khẩu phải hơn 6 kí tự</small>
+                    </div>
+
+                    <div class="md-form md-outline">
+                        <i class="fas fa-lock prefix indigo-text"></i>
+                        <input name="repassword" ng-model="repassword" type="password" id="repassword" class="form-control border-indigo" required re-pass>
+                        <label class="bg-white indigo-text rounded px-2 ml-5" for="repassword"><strong>Mật khẩu (nhập lại)</strong> </label>
+                        <small ng-show="frmRegister.repassword.$error.required" class="form-text text-danger">Vui lòng nhập lại mật khẩu</small>
+                        <small ng-show="frmRegister.repassword.$invalid && !frmRegister.repassword.$error.required" class="form-text text-danger">Mật khẩu nhập lại không khớp</small>
+                    </div>
+
+                    <div class="md-form md-outline">
+                        <i class="fas fa-signature prefix indigo-text"></i>
+                        <input name="fullname" ng-model="studentR.fullname" type="text" id="fullname" class="form-control border-indigo" required minlength="5">
+                        <label class="bg-white indigo-text rounded px-2 ml-5" for="fullname"><strong>Họ và tên</strong> </label>
+                        <small ng-show="frmRegister.fullname.$error.required" id="fullname" class="form-text text-danger">Vui lòng nhập họ tên</small>
+                        <small ng-show="frmRegister.fullname.$error.minlength" id="fullname" class="form-text text-danger">Không được dưới 5 kí tự</small>
+
+                    </div>
+
+                    <div class="md-form md-outline">
+                        <i class="far fa-envelope prefix indigo-text"></i>
+                        <input name="email" ng-model="studentR.email" type="email" id="email" class="form-control border-indigo" required>
+                        <label class="bg-white indigo-text rounded px-2 ml-5" for="email"><strong>Email</strong> </label>
+                        <small ng-show="frmRegister.email.$error.required" class="form-text text-danger">Vui lòng nhập email</small>
+                        <small ng-show="frmRegister.email.$error.email" class="form-text text-danger">Không đúng định dạng email</small>
+                    </div>
+
+                    <label class="bg-white indigo-text rounded px-2" for=""> <i class="fas fa-transgender"></i>Giới tính:</label>
+                    <div class="form-check form-check-inline">
+                        <input ng-model="studentR.gender" type="radio" class="form-check-input" id="gender" name="gender" value="true">
+                        <label class="form-check-label indigo-text" for="gender">Nam</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input ng-model="studentR.gender" type="radio" class="form-check-input" id="gender2" name="gender" value="false">
+                        <label class="form-check-label indigo-text" for="gender2">Nữ</label>
+                    </div>
+
+                    <div class="md-form md-outline">
+                        <i class="far fa-envelope prefix indigo-text"></i>
+                        <input name="birthday" ng-model="studentR.birthday" type="text" id="birthday" class="form-control border-indigo" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" required>
+                        <label class="bg-white indigo-text rounded px-2 ml-5" for="birthday"><strong>Ngày sinh(yyyy-mm-dd)</strong> </label>
+                        <small ng-show="frmRegister.birthday.$error.required" class="form-text text-danger">Vui lòng nhập ngày sinh</small>
+                        <small ng-show="frmRegister.birthday.$error.pattern" class="form-text text-danger">Không đúng định dạng ngày sinh</small>
+                    </div>
+
+                    <div class="md-form md-outline">
+                        <i class="fas fa-money-bill prefix indigo-text"></i>
+                        <input name="schoolfee" ng-model="studentR.schoolfee" type="number" id="schoolfee" class="form-control border-indigo" required min="2000000">
+                        <label class="bg-white indigo-text rounded px-2 ml-5" for="schoolfee"><strong>Học phí</strong> </label>
+                        <small ng-show="frmRegister.schoolfee.$error.required" id="schoolfee" class="form-text text-danger">Vui lòng nhập học phí</small>
+                        <small ng-show="frmRegister.schoolfee.$error.min" id="schoolfee" class="form-text text-danger">Học phí phải hơn 2 triệu</small>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button ng-click="register()" ng-disabled="frmRegister.$invalid" class="btn btn-indigo text-white btn-rounded">Đăng ký</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>OT | layout</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mdb.min.css">
+    <link rel="stylesheet" href="css/sweetalert2.min.css">
+    <link rel="stylesheet" href="css/styleInput.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/sweetalert2.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/angular-animate.js"></script>
+</head>
+
+<body class="fixed-sn white-skin" ng-app="myApp">
+    <header>
+        <div id="slide-out" class="side-nav fixed" style="background-image: url(img/bg2222.png);">
+            <ul class="custom-scrollbar">
+                <li class="logo-sn waves-effect py-3">
+                    <div class="text-center">
+                        <a href="index.html" class="pl-0"><img src="img/logo2.png"></a>
+                    </div>
+                </li>
+                <li>
+                    <ul class="collapsible collapsible-accordion">
+                        <li>
+                            <a ng-click="intro=1" href="#!index" class="collapsible-header waves-effect"><i class="w-fa fas fa-home"></i>Trang chủ</a>
+                        </li>
+                        <li>
+                            <a ng-click="intro=1" href="#!about" class="collapsible-header waves-effect"><i class="w-fa fas fa-credit-card"></i>Giới thiệu</a>
+                        </li>
+                        <li>
+                            <a ng-click="intro=1" href="#!contact" class="collapsible-header waves-effect"><i class="w-fa fas fa-phone-square-alt"></i></i>Liên hệ</a>
+                        </li>
+                        <li>
+                            <a ng-click="intro=1" href="#!feedback" class="collapsible-header waves-effect"><i class="w-fa fas fa-comments"></i></i>Góp ý</a>
+                        </li>
+                        <li>
+                            <a ng-click="intro=1" href="#!FAQ" class="collapsible-header waves-effect"><i class="w-fa fas fa-question-circle"></i></i>Hỏi đáp</a>
+                        </li>
+                        <li>
+                            <a href="" class="collapsible-header waves-effect arrow-r"><i class="w-fa fas fa-list"></i>Danh mục<i class="fas fa-angle-down rotate-icon"></i></a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li ng-repeat="sj in subjects">
+                                        <a ng-click="intro=1" href="#!viewtest/{{sj.Id}}" class="waves-effect">
+                                            <img src="{{'img/logos/'+sj.Logo}}" class="img-fluid rounded-circle hoverable" style="height: 20px;" alt=""> {{sj.Name}}
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="sidenav-bg mask-light"></div>
+        </div>
+        <nav class="navbar fixed-top navbar-expand-lg scrolling-navbar double-nav">
+            <div class="float-left">
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="fas fa-bars"></i></a>
+            </div>
+            <div class="breadcrumb-dn mr-auto">
+                <p><strong>Online Training</strong></p>
+            </div>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle waves-effect" href="" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user"></i> <span class="clearfix d-none d-sm-inline-block">{{(student==null)?'Tài khoản':student.fullname}}</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-secondary" aria-labelledby="userDropdown">
+                    <div ng-show="student==null">
+                        <a ng-click="intro=0" class="dropdown-item" href="#!register">Đăng kí</a>
+                        <a ng-click="intro=0" class="dropdown-item" href="#!login">Đăng nhập</a>
+                        <a ng-click="intro=0" class="dropdown-item" href="#!forgotpassword">Quên mật khẩu</a>
+                    </div>
+                    <div ng-hide="student==null">
+                        <a ng-click="intro=1" class="dropdown-item" href="#!updateaccount">Thông tin cá nhân</a>
+                        <a ng-click="intro=1" class="dropdown-item" href="#!changepassword">Đổi mật khẩu</a>
+                        <a ng-click="intro=1;logoff()" class="dropdown-item" href="">Đăng xuất</a>
+                    </div>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <main style="min-height: 500px;">
+        <div class="my-slide-container">
+            <div ng-view class="my-slide-animation"></div>
+        </div>
+    </main>
+
+    <footer ng-show="loading" class="page-footer text-center text-md-left unique-color-dark pt-0 mt-5" style="transition: all linear 1s;">
+
+        <div class="top-pink-footer">
+            <div class="container">
+
+                <div class="row py-4 d-flex align-items-center">
+
+                    <div class="col-md-6 col-lg-5 text-center text-md-left mb-md-0">
+                        <h6 class="mb-4 mb-md-0 white-text">Hãy liên hệ với tôi qua mạng xã hội!</h6>
+                    </div>
+
+                    <div class="col-md-6 col-lg-7 text-center text-md-right">
+                        <a class="p-2 m-2 fa-lg fb-ic ml-0" href="https://www.facebook.com/d.otaku1306/">
+                            <i class="fab fa-facebook-f white-text mr-lg-4"> </i>
+                        </a>
+                        <a class="p-2 m-2 fa-lg tw-ic">
+                            <i class="fab fa-twitter white-text mr-lg-4"> </i>
+                        </a>
+                        <a class="p-2 m-2 fa-lg gplus-ic">
+                            <i class="fab fa-google-plus-g white-text mr-lg-4"> </i>
+                        </a>
+                        <a class="p-2 m-2 fa-lg li-ic">
+                            <i class="fab fa-linkedin-in white-text mr-lg-4"> </i>
+                        </a>
+                        <a class="p-2 m-2 fa-lg ins-ic">
+                            <i class="fab fa-instagram white-text mr-lg-4"> </i>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-copyright text-center py-3">
+            <div class="container-fluid">
+                <h3 class="">Made with <i class="fas fa-heart red-text mx-1"></i> by PTN (PS09235)</h3>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script src="js/app/myApp.js"></script>
+    <script src="js/app/loginCtrl.js"></script>
+    <script src="js/app/registerCtrl.js"></script>
+    <script src="js/app/updateaccountCtrl.js"></script>
+    <script src="js/app/forgotpasswordCtrl.js"></script>
+    <script src="js/app/changepasswordCtrl.js"></script>
+    <script src="js/app/viewtestCtrl.js"></script>
+    <script src="js/app/testCtrl.js"></script>
+    <script src="js/app/indexCtrl.js"></script>
+    <script>
+        $(".button-collapse").sideNav();
+
+        var container = document.querySelector('.custom-scrollbar');
+        var ps = new PerfectScrollbar(container, {
+            wheelSpeed: 2,
+            wheelPropagation: true,
+            minScrollbarLength: 20
+        });
+        // Animation init
+        new WOW().init();
+    </script>
+</body>
+
+</html>

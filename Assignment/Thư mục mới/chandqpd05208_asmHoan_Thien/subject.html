@@ -1,0 +1,36 @@
+<!-- //hien thi mon hoc -->
+<div class="row">
+    <article class="col-sm-9">
+        <div class="container-fluid">
+            <div class="row">
+                  <div class="col-sm-6 mt-4" ng-repeat="list in list_subject">
+                      <div class="card text-center">
+                          <div class="card-body">
+                          <a href="#!quiz/{{list.Id}}/{{list.Name}}/{{list.Logo}}">
+                              <img src="images/{{list.Logo}}" alt="" />
+                              <p class="card-text">{{list.Name}}</p>
+                          </a>
+                          </div>
+                      </div>
+                  </div>
+            </div>
+          </div>
+    </article>
+
+    <aside class="col-sm-3 mt-4">
+      <div class="card">
+        <div class="card" data-toggle="collapse" href="#chungloai">
+          <div class="card-header" style="cursor: pointer;">
+            <span class="glyphicon glyphicon-th-list"></span>
+            <i class="fas fa-list"></i><strong> Danh mục môn học</strong>
+          </div>
+
+          <div class="list-group list-group-flush" ng-repeat="list in list_subject">
+              <a href="#!quiz/{{list.Id}}/{{list.Name}}/{{list.Logo}}" class="list-group-item"> {{list.Name}}</a>
+          </div>
+
+          
+        </div>
+      </div>
+    </aside>  
+  </div>

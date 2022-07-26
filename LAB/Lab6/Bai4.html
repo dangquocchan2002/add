@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Bai4 Lab6</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <STYle>
+        input.ng-invalid{
+            background-image: url('fire.png');
+            background-position: center right;
+            background-repeat: no-repeat;
+            border: 1px dotted red;
+        }
+    </STYle>
+</head>
+  <body>
+      <div class="container" ng-app="myapp" ng-controller="myctrl"> 
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h2 class="panel-title">THÔNG TIN SINH VIÊN</h2>
+              </div>
+              <form class="panel-body" name="StudentForm">
+                <div class="form-group">
+                  <label for="fullname">Họ và tên</label>
+                  <input type="text" required maxlength="25" ng-model="fullname"
+                    class="form-control" name="fullname" id="fullname" aria-describedby="fullnamehelpId" placeholder="Họ và tên">
+                  <small ng-show="StudentForm.fullname.$invalid" id="fullnamehelpId" 
+                   class="form-text text-muted">Vui lòng nhập họ và tên</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="mark">Điểm</label>
+                  <input type="number" ng-model="mark" min="0" max="10"
+                    class="form-control" name="mark" id="mark" aria-describedby="markhelpId" placeholder="Điểm">
+                  <small ng-show="StudentForm.mark.$invalid" id="markhelpId" 
+                  class="form-text text-muted">Vui lòng nhập điểm từ 0 - 10</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" ng-model="email" required
+                    class="form-control" name="email" id="email" aria-describedby="emailhelpId" placeholder="Email">
+                  <small ng-show="StudentForm.email.$invalid" id="emailhelpId" 
+                  class="form-text text-muted">Email không hợp lệ</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="number">Số xe</label>
+                  <input type="text" ng-model="number" pattern="5\d-[A-Z]\d-((\d{4})|(\d{3}\.\d{2}))"
+                    class="form-control" name="number" id="number" aria-describedby="numberhelpId" placeholder="Số xe">
+                  <small ng-show="StudentForm.number.$invalid" id="numberhelpId" class="form-text text-muted">Số xe không đúng định dạng Sài Gòn</small>
+                </div>
+                
+              </form>
+              <div class="panel-footer">
+                  <input type="button" value="Lưu" class="btn btn-primary">
+              </div>
+          </div>
+          <div ng-if="StudentForm.$valid" class="alert alert-primary" role="alert">
+            <strong>CHÚC MỪNG BẠN ĐÃ NHẬP ĐÚNG</strong>
+          </div>
+      </div>
+
+      <script>
+          var app = angular.module("myapp", []);
+          app.controller("myctrl", function ($scope){
+               
+                
+            });
+      </script>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

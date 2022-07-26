@@ -1,0 +1,46 @@
+<style>
+    body {
+        background-image: url(img/hb.png);
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+</style>
+<section>
+    <div class="col-lg-5 m-auto">
+        <div class="card card-cascade narrower">
+
+            <div class="view view-cascade gradient-card-header" style="background-image: url(img/H4tz.gif); background-position: center;background-repeat: no-repeat;background-size: cover;">
+
+                <h2 class="card-header-title">Đăng nhập</h2>
+                <p>Vui lòng nhập tài khoản mật khẩu</p>
+            </div>
+
+            <div class="card-body card-body-cascade px-5 py-3">
+
+                <form name="frmLogin" id="frmLogin">
+                    <div class="md-form md-outline">
+                        <i class="fas fa-user prefix deep-orange-text"></i>
+                        <input name="username" ng-model="username" type="text" id="username" class="form-control border-primary" required maxlength="25">
+                        <label class="bg-white deep-orange-text rounded px-2 ml-5" for="username"> <strong>Tài khoản</strong> </label>
+                        <small ng-show="frmLogin.username.$invalid" id="username" class="form-text text-danger">Vui lòng nhập tài khoản</small>
+                    </div>
+
+                    <div class="md-form md-outline">
+                        <i class="fas fa-lock prefix deep-orange-text"></i>
+                        <input name="password" ng-model="password" type="password" id="password" class="form-control border-primary" required maxlength="25">
+                        <label class="bg-white deep-orange-text rounded px-2 ml-5" for="password"> <strong>Mật khẩu</strong> </label>
+                        <small ng-show="frmLogin.password.$invalid" id="password" class="form-text text-danger">Vui lòng nhập mật khẩu</small>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button ng-click='login()' ng-disabled="frmLogin.$invalid" class="btn peach-gradient btn-rounded">Đăng nhập</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,518 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASG</title>
+
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <script src="angular.min.js"></script>
+    <script src="myapp.js"></script>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    
+
+    <!-- Poly -->
+    <link href="css/poly.css" rel="stylesheet" />
+    <link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.min.css">
+    
+    <style>
+        .card-body img:hover{
+          transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body ng-app="myapp">
+    
+    <div class="container">
+        <header class="row">
+            <div class="shopping-mall">
+                <h1>Online Training</h1>
+                <h5>The center point of the professional programming</h5>
+            </div>
+            <img class="pull-right" src="images/header-object.png" />
+        </header>
+        <nav class="row">
+            <div class="navbar navbar-inverse">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <!--Menu-->
+                    <ul class="nav navbar-nav">
+                        <li><a href=""><span class="glyphicon glyphicon-home"></span> Trang chủ</a></li>
+                        <li class="nav-item ">
+                            <a class="nav-link" class="btn btn-primary" data-toggle="modal" data-target="#gioithieu"
+                                href="#"><i class="glyphicon glyphicon-th-list"></i> Giới thiệu</a>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a class="nav-link" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                                href="#"><i class="glyphicon glyphicon-earphone"></i>Liên hệ</a>
+                        </li>
+                        <li class="nav-item ">
+
+                        <li class="nav-item ">
+                            <a class="nav-link" class="btn btn-primary" data-toggle="modal" data-target="#gopy"
+                                href="#"><i class="glyphicon glyphicon-envelope"></i>Góp ý </a>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a class="nav-link" class="btn btn-primary" data-toggle="modal" data-target="#hoidap"
+                                href="#"><i class="glyphicon glyphicon-question-sign"></i>Hỏi đáp</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span
+                                    class="glyphicon glyphicon-user"></span> Tài khoản <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="dangnhapmoi.html">Đăng nhập</a></li>
+                                <li><a href="">Quên mật khẩu</a></li>
+                                <li><a href="dangkinew.html">Đăng ký thành viên</a></li>
+                                <li class="divider"></li>
+                                <li><a href="dangnhapmoi.html">Đăng xuất</a></li>
+                                <li><a href="">Đổi mật khẩu</a></li>
+                                <li><a href="">Cập nhật tài khoản</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="">English</a></li>
+                        <li><a href="">Tiếng Việt</a></li>
+                    </ul>
+                    <!--Menu-->
+                </div>
+            </div>
+        </nav>
+
+        <!-- noidung -->
+        <div class=" row">
+
+
+            <article class="col-sm-9" ng-controller="subjectCtrl">
+                
+                <!--Nội dung trang web-->
+                <div class="row">
+                    <div ng-repeat="sub in list_subject">
+                       
+                        <div class="col-sm-4">
+                            <div class="card">
+                               
+                                <div class="card-body">
+                                    <img src="images/logos/{{sub.Logo}}" alt="">
+                                </div>
+                                <div class="card-footer">
+                                    {{sub.Name}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </article>
+
+            <aside class="col-sm-3">
+
+
+                <div class="panel-group" id="accordion">
+                    <style>
+                        #accordion .panel-heading {
+                            cursor: pointer;
+                        }
+                    </style>
+                    <!--Doanh mục-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            <span class="glyphicon glyphicon-th-list"></span>
+                            <strong>Doanh mục môn học</strong>
+                        </div>
+                        <div  class="list-group " ng-controller="subjectCtrl">
+
+                            <div ng-repeat="sub in list_subject">
+                                <a href="#" class="list-group-item">{{sub.Name}}</a>
+                                
+                            </div>
+                            <!-- <a href="#" class="list-group-item">Lập trình Android nâng cao</a>
+                            <a href="#" class="list-group-item">Xây dựng trang Web</a>
+                            <a href="#" class="list-group-item">Cơ sở dữ liệu</a>
+                            <a href="#" class="list-group-item">SQL Server</a>
+                            <a href="#" class="list-group-item">Internet Marketing</a>
+                            <a href="#" class="list-group-item">Lập trình hướng đối tượng với Java</a>
+                            <a href="#" class="list-group-item">Lập trình PHP</a>
+                            <a href="#" class="list-group-item">Điện toán đám mây</a>
+                            <a href="#" class="list-group-item">Lập trình Android cơ bản</a>
+                            <a href="#" class="list-group-item">Lập trình game 2D</a>
+                            <a href="#" class="list-group-item">Thiết kế giao diện trên Android</a>
+                            <a href="#" class="list-group-item">Thiết kế web cho điện thoại di động</a>
+                            <a href="#" class="list-group-item">Lập trình ASP.NET</a> -->
+                        </div>
+                    </div>
+                    <!--/Category-->
+
+                    <!--Supplier-->
+
+                    <!--/Supplier-->
+
+                    <!--Special-->
+
+                    <!--/Special-->
+                </div>
+
+                <!-- gioithieu -->
+                <div class="modal" tabindex="-1" role="dialog" id="gioithieu">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header" style="background-color: rgb(66, 186, 241);">
+                                <h5 class="modal-title">GIỚI THIỆU</h5>
+
+                            </div>
+                            <div class="modal-body">
+                                <form action="">
+
+                                    <div class="row">
+
+
+                                    </div>
+                                    <div class="row">
+
+
+                                    </div>
+                                    <div class="row">
+
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="">
+                                                Xây dựng website thi trắc nghiệm trực tuyến triển khai theo hình thức
+                                                SPA sử dụng công nghệ
+                                                Bootstrap và AngularJS với các chức năng theo yêu cầu sau
+                                                <br> Người học vào trang danh mục môn học và chọn môn thi. Trang thi
+                                                trắc nghiệm hiển thị
+                                                phục vụ người học thi trắc nghiệm môn đã chọn.
+                                                <br> Trang danh mục các môn học có phân trang, mỗi trang 4 hoặc 6 môn
+                                                học.
+                                                <br> Trang thi phải có các yêu tố sau đây
+                                                <br> Mỗi lần hiển thị một câu hỏi
+                                                <br> Có các nút điều hướng để đến câu hỏi trước, sau, đầu và cuối
+
+
+
+
+
+                                                <br> Ngoài ra website cũng phải cung cấp các trang web để quản lý thành
+                                                viên:
+                                                <br> Đăng nhập
+                                                <br> Đăng ký
+                                                <br> Quên mật khẩu
+                                                <br> Đổi mật khẩu
+                                                <br> Sửa đổi thông tin tài khoản
+
+
+
+                                            </label>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </form>
+                            </div>
+                            <div class="modal-footer" style="background-color: rgb(66, 186, 241);">
+                                <div class="row mt-4 ">
+                                    <div class="form-group col text-center">
+
+                                        <button type="submit" class="btn btn-danger" data-dismiss="modal">
+                                            <i class="fas fa-times-circle"></i> Hủy
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Liên hệ -->
+                <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header" style="background-color: rgb(66, 186, 241);">
+                                <h5 class="modal-title">LIÊN HỆ</h5>
+
+                            </div>
+                            <div class="modal-body">
+                                <form action="">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="national">Bạn đang quan tâm về vấn đề?</label>
+
+                                            <div class="col text-center" style="color: rgb(12, 0, 1); width: 100%;">
+                                                <select name="national" id="national"
+                                                    style="background-color: rgb(42, 148, 235); width: 100%; height: 30px;">
+                                                    <option value="0">Chọn chủ đề</option>
+                                                    <option value="1">Tư vấn</option>
+                                                    <option value="2">Khiếu nại</option>
+                                                    <option value="3">Hợp tác</option>
+                                                    <option value="4">Góp ý cải tiến</option>
+
+                                                </select>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col">
+                                            <label for="">Họ và tên:</label>
+                                            <input type="text" class="form-control" placeholder="Nhập họ và tên">
+                                            <small class="form-text text-muted">Họ tên không được trống</small>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="">Số điện thoại:</label>
+                                            <input type="text" class="form-control" placeholder="Nhập số điện thoại">
+                                            <small class="form-text text-muted">Số điện thoại không được trống</small>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="">Email:</label>
+                                            <input type="text" class="form-control" placeholder="Nhập Email">
+                                            <small class="form-text text-muted">Email không được trống</small>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="">
+                                                Nội dung
+
+                                            </label>
+                                            <textarea cols="30" rows="5" class="form-control"></textarea>
+                                        </div>
+
+
+                                    </div>
+
+                                </form>
+                            </div>
+                            <div class="modal-footer" style="background-color: rgb(66, 186, 241);">
+                                <div class="row mt-4 ">
+                                    <div class="form-group col text-center">
+                                        <button type="submit " style="background-color: rgb(104, 104, 245);"
+                                            class="btn btn-default">
+                                            <i class="fas fa-save"></i> Gửi liên hệ
+                                        </button>
+                                        <button type="submit" class="btn btn-danger" data-dismiss="modal">
+                                            <i class="fas fa-times-circle"></i> Hủy
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Góp ý  -->
+                <div class="modal" tabindex="-1" role="dialog" id="gopy">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header" style="background-color: rgb(241, 230, 66);">
+                                <h5 class="modal-title">GÓP Ý</h5>
+
+                            </div>
+                            <div class="modal-body">
+                                <form action="">
+                                    <div class="row">
+
+                                        <div class="col">
+                                            <label for="">Họ và tên:</label>
+                                            <input type="text" class="form-control" placeholder="Nhập họ và tên">
+                                            <small class="form-text text-muted">Họ tên không được trống</small>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="">Số điện thoại:</label>
+                                            <input type="text" class="form-control" placeholder="Nhập số điện thoại">
+                                            <small class="form-text text-muted">Số điện thoại không được trống</small>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="">Email:</label>
+                                            <input type="text" class="form-control" placeholder="Nhập Email">
+                                            <small class="form-text text-muted">Email không được trống</small>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="">Địa chỉ:</label>
+                                            <input type="text" class="form-control" placeholder="Nhập địa chỉ">
+                                            <small class="form-text text-muted">Địa chỉ không được trống</small>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="">
+                                                Nội dung
+                                            </label>
+                                            <textarea cols="30" rows="5" class="form-control"></textarea>
+                                        </div>
+
+                                    </div>
+
+                                </form>
+                            </div>
+                            <div class="modal-footer" style="background-color: rgb(241, 230, 66);">
+                                <div class="row mt-4 ">
+                                    <div class="form-group col text-center">
+                                        <button type="submit" style="background-color: rgb(120, 120, 243);"
+                                            class="btn btn-default">
+                                            <i class="fas fa-save"></i> Gửi góp ý
+                                        </button>
+                                        <button type="submit" class="btn btn-danger" data-dismiss="modal">
+                                            <i class="fas fa-times-circle"></i> Hủy
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hỏi đáp -->
+                <div class="modal" tabindex="-1" role="dialog" id="hoidap">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header" style="background-color: rgb(84, 243, 63);">
+                                <h5 class="modal-title">HỎI ĐÁP</h5>
+
+                            </div>
+                            <div class="modal-body">
+                                <form action="">
+                                    <div class="row">
+
+                                        <div class="col">
+                                            <label for="">Họ và tên:</label>
+                                            <input type="text" class="form-control" placeholder="Nhập họ và tên">
+                                            <small class="form-text text-muted">Họ tên không được trống</small>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="">Số điện thoại:</label>
+                                            <input type="text" class="form-control" placeholder="Nhập số điện thoại">
+                                            <small class="form-text text-muted">Số điện thoại không được trống</small>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="">Email:</label>
+                                            <input type="text" class="form-control" placeholder="Nhập Email">
+                                            <small class="form-text text-muted">Email không được trống</small>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="">
+                                                Nội dung hỏi đáp
+                                            </label>
+                                            <textarea cols="30" rows="5" class="form-control"></textarea>
+                                        </div>
+
+                                    </div>
+
+                                </form>
+                            </div>
+                            <div class="modal-footer" style="background-color: rgb(84, 243, 63);">
+                                <div class="row mt-4 ">
+                                    <div class="form-group col text-center">
+                                        <button type="submit" style="background-color: rgb(120, 120, 243);"
+                                            class="btn btn-default">
+                                            <i class="fas fa-save"></i> Gửi câu hỏi
+                                        </button>
+                                        <button type="submit" class="btn btn-danger" data-dismiss="modal">
+                                            <i class="fas fa-times-circle"></i> Hủy
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </aside>
+        </div>
+
+        
+        <footer class="panel panel-default row">
+            <!-- Grid container -->
+            <div class="panel-heading text-center" style="background-color: #cce1ec;">
+              <!-- Section: Social media -->
+              <section class="mb-4">
+                <!-- Facebook -->
+                <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998;" href="#!" role="button"><i
+                    class="fab fa-facebook-f"></i></a>
+      
+                <!-- Twitter -->
+                <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee;" href="#!" role="button"><i
+                    class="fab fa-twitter"></i></a>
+      
+      
+                <!-- Google -->
+                <a class="btn btn-primary btn-floating m-1" style="background-color: #dd4b39;" href="#!" role="button"><i
+                    class="fab fa-google"></i></a>
+      
+                <!-- Instagram -->
+                <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac;" href="#!" role="button"><i
+                    class="fab fa-instagram"></i></a>
+      
+                <!-- Linkedin -->
+                <a class="btn btn-primary btn-floating m-1" style="background-color: #0082ca;" href="#!" role="button"><i
+                    class="fab fa-linkedin-in"></i></a>
+                <!-- Github -->
+                <a class="btn btn-primary btn-floating m-1" style="background-color: #333333;" href="#!" role="button"><i
+                    class="fab fa-github"></i></a>
+              </section>
+              <!-- Section: Social media -->
+            </div>
+            <!-- Grid container -->
+      
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+              © 2022 Copyright:
+              
+            </div>
+            <!-- Copyright -->
+          </footer>
+      
+    </div>
+
+    
+</body>
+
+</html>

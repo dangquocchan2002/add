@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shopping Mall</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.min.css">
+    <style>
+        .shopping-mall{
+            bottom: 20px;
+            font-variant: small-caps;
+        }
+        .shopping-mall>h1{
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 50px;
+            color: pink;
+            letter-spacing: 13px;
+            text-shadow: 0 0 2px #0000;
+            padding-bottom: 0px;
+            border-bottom: 1px dotted gray;
+            margin: 0px;
+        }
+        .shopping-mall>h5{
+            margin-top: 5px;
+            letter-spacing: .5px;
+
+        }
+        
+
+        
+    </style>
+    <!-- jquery -->
+
+    <script src="js/jquery.min.js"></script>
+<!-- bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css"> 
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Poly -->
+    <link rel="stylesheet" href="css/">
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <div class="container">
+        <header class="row ml-1" >
+        <div class="shopping-mall pt-4">
+            <h1>Online Shopping Mall</h1>
+            <h5>The center point of the professional programming </h5>
+        </div>
+        <img src="image/header-object.png" class="ml-auto mr-3" >
+        </header>
+        <nav class="row" style="background-color: black;">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light col " style="background-color: black;">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link"  href="#">
+                          <i class="fas fa-home" style="color: blue;"></i>
+                          Trang chủ <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#"><i class="fas fa-list-alt" style="color: blue;"></i> Giới thiệu</a>
+                      </li>
+                      <li class="nav-item ">
+                        <a class="nav-link" href="#"><i class="fas fa-phone" style="color: blue;"></i>Liên hệ</a>
+                      </li><li class="nav-item ">
+                        <a class="nav-link" href="#"><i class="fas fa-envelope" style="color: blue;"></i>Góp ý </a>
+                      </li>
+                      <li class="nav-item ">
+                        <a class="nav-link" href="#"><i class="fas fa-question" style="color: blue;"></i>Hỏi đáp</a>
+                      </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user" style="color: blue;"></i>  Tài khoản
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Đăng nhập</a>
+                        <a class="dropdown-item" href="#">Quên mật khẩu</a>
+                        <a class="dropdown-item" href="#">Đăng kí thành viên</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Đăng xuất</a>
+                        <a class="dropdown-item" href="#">Đổi mật khẩu</a>
+                        <a class="dropdown-item" href="#">Cập nhật hồ sơ</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Đơn hàng</a>
+                        <a class="dropdown-item" href="#">Hàng đã mua</a>
+                      </div>
+                    </li>
+                  </ul>
+                  <ul class="navbar-nav ml-auto ">
+                      <li class="nav item" >
+                          <a href="" class="nav-link" style="color: red;" >English</a>
+                      </li>
+                      <li class="nav item">
+                        <a href="" class="nav-link" style="color: blue;">Tiếng Việt</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+        </nav>
+        <section class="row">
+            <article class="col-9" >
+              <div class="row">
+                  <div class="col-sm-4"> <img src="products/1101.jpg" width="95%"></div>
+                  <div class="col-sm-8 mt-3" > 
+                      <ul>
+                          <li>Tên hàng: Xe SH</li>
+                          <li>Đơn giá: 2000$</li>
+                          <li>Nhà cung cấp: Honda</li>
+                          <li>Chủng loại: Thời trang</li>
+                          <li>Hàng mới nhập khẩu</li>
+                          <li>Giảm giá: 5%</li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="row">
+                  <fieldset>
+                    <h4>Hàng liên quan</h4>
+                  
+                  <img class="img-thumnail" src="products/1003.jpg" style="max-width:95% ;" height="50px">
+                  <img class="img-thumnail" src="products/1004.jpg" style="max-width:95% ;" height="50px">
+                  <img class="img-thumnail"src="products/1031.jpg" style="max-width:95% ;" height="50px">
+                  <img class="img-thumnail"src="products/1033.jpg" style="max-width:95% ;" height="50px">
+                  <img class="img-thumnail"src="products/1051.jpg" style="max-width:95% ;" height="50px">
+                  <img class="img-thumnail" src="products/1046.jpg" style="max-width:95% ;" height="50px">
+                </fieldset> 
+              </div>
+            </article>
+
+
+            <aside class="col-3" >
+              <div class="poly-cart mt-2">
+                <div class="cart">
+                  <div class="cart-body">
+                    <div class="row">
+                      <div class="col-5">
+                        <img src="image/shoppingcart.gif" class="img-fluid">
+                      </div>
+                      <ul class="col-7">
+                        <li>100 Item</li>
+                        <li>$ 10</li>
+                        <li><a href="">View Cart</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <!-- tim kiem -->
+                <div class="card-mt-2">
+                  <div class="card-body">
+                    <form action="">
+                      <input type="text" class="form-control" placeholder="KeyWords">
+                    </form>
+                  </div>
+                </div>
+                <!-- chung loai -->
+                <div class="card-mt-2" data-toggle="collapse" href = "#chungloai">
+                  <div class="card-header" style="cursor: pointer;">
+                    <i class="fas fa-list"></i>
+                    Chủng loại
+                  </div>
+                  
+                    <ul id="chungloai" class="list-group card-collapse">
+                      <li class="list-group-item">Điện thoại di động</li>
+                      <li class="list-group-item">Máy tính xách tay</li>
+                      <li class="list-group-item">Máy tính để bàn</li>
+                      <li class="list-group-item">Quạt</li>
+                      <li class="list-group-item">Ti Vi</li>
+                      <li class="list-group-item">Tủ Lạnh</li>
+                    </ul>
+                  
+                </div>
+                <div class="card-mt-2" data-toggle="collapse" href = "#nhacungcap">
+                    <div class="card-header" style="cursor: pointer;">
+                      <i class="fas fa-list"></i>
+                      Nhà cung cấp
+                    </div>
+                    
+                      <ul id="nhacungcap" class="list-group card-collapse">
+                        <li class="list-group-item">Điện thoại di động</li>
+                        <li class="list-group-item">Máy tính xách tay</li>
+                        <li class="list-group-item">Máy tính để bàn</li>
+                        <li class="list-group-item">Quạt</li>
+                        <li class="list-group-item">Ti Vi</li>
+                        <li class="list-group-item">Tủ Lạnh</li>
+                      </ul>
+                    
+                  </div>
+                  <div class="card-mt-2" data-toggle="collapse" href = "#hangdacbiet">
+                    <div class="card-header" style="cursor: pointer;">
+                      <i class="fas fa-list"></i>
+                      Nhà cung cấp
+                    </div>
+                    
+                      <ul id="hangdacbiet" class="list-group card-collapse">
+                        <li class="list-group-item">Điện thoại di động</li>
+                        <li class="list-group-item">Máy tính xách tay</li>
+                        <li class="list-group-item">Máy tính để bàn</li>
+                        <li class="list-group-item">Quạt</li>
+                        <li class="list-group-item">Ti Vi</li>
+                        <li class="list-group-item">Tủ Lạnh</li>
+                      </ul>
+                    
+                  </div>
+              </div>
+            </aside>
+        </section>
+        <footer class="row" style="background-color: violet;">
+            <div class="card col">
+                <div class="card-body">
+                    <p>FPT Polytechnic &copy; 2021, All rights revered.</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>

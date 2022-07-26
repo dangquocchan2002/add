@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Bai5 Lab5</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    .poly-prod {
+      height: 150px;
+      max-width: 95%;
+      
+      
+    }
+  </style>
+</head>
+
+<body ng-app="myapp">
+  <div class="container" >
+    <div class="row "  ng-controller="myctrl">
+
+      <div class="col-md-3 mt-4 "  ng-repeat="p in products">
+        <div  class="card float" >
+        <div class="card-header" style="background-color: rgb(66, 187, 235);">
+          {{p.name}}
+        </div>
+        <div class="card-body" >
+          <img class="poly-prod" src="{{p.image}}" >
+        </div>
+        <div class="card-footer" >
+          ${{p.price}}
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </div>
+
+  </div>
+
+
+
+  <script>
+    var app = angular.module("myapp", []);
+    app.controller("myctrl", function ($scope) {
+      $scope.products = [
+        {
+          name: "Đồng hồ thụy sĩ",
+          image: "products/1001.jpg",
+          price: 1200
+        },
+        {
+          name: "Dell star X",
+          image: "products/1003.jpg",
+          price: 700
+        },
+        {
+          name: "Sony Vaio 2017",
+          image: "products/1004.jpg",
+          price: 1700
+        },
+        {
+          name: "Máy ảnh Canon",
+          image: "products/1005.jpg",
+          price: 300
+        },
+        {
+          name: "Vòng cưới France",
+          image: "products/1009.jpg",
+          price: 7000
+        },
+        {
+          name: "Motorola thế hệ 5",
+          image: "products/1011.jpg",
+          price: 900
+        },
+        {
+          name: "Mũ lưỡi trai",
+          image: "products/1014.jpg",
+          price: 100
+        },
+        {
+          name: "Nước hoa Korea",
+          image: "products/1024.jpg",
+          price: 600
+        }
+      ];
+
+
+    });
+
+
+
+
+  </script>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

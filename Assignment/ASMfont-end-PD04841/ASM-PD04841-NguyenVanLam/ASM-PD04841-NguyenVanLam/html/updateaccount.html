@@ -1,0 +1,76 @@
+<style>
+    body {
+        background-image: url(img/hp.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+</style>
+<section>
+    <div class="col-lg-8 m-auto">
+        <div class="card card-cascade narrower">
+
+            <div class="view view-cascade gradient-card-header" style="background-image: url(img/H4tz.gif); background-position: center;background-repeat: no-repeat;background-size: cover;">
+
+                <h2 class="card-header-title">Cập nhật tài khoản</h2>
+                <p>Tài khoản: {{student.fullname}}</p>
+
+            </div>
+            <div class="card-body card-body-cascade p-5">
+
+                <form name="frmUpdate">
+
+                    <div class="md-form md-outline">
+                        <span class="form-text light-blue-text"><i class="fas fa-signature"></i> Họ tên</span>
+                        <input placeholder=" " name="fullname" ng-model="student.fullname" type="text" id="fullname" class="form-control border-primary" required maxlength="25" autofocus>
+                        <small ng-show="frmUpdate.fullname.$error.required" class="form-text text-danger">Vui lòng nhập họ tên</small>
+                        <small ng-show="frmUpdate.fullname.$error.maxlength" class="form-text text-danger">Không được quá 25 kí tự</small>
+
+                    </div>
+
+                    <div class="md-form md-outline">
+                        <span class="form-text light-blue-text"><i class="far fa-envelope"></i> Email</span>
+                        <input placeholder=" " name="email" ng-model="student.email" type="email" id="email" class="form-control border-primary" required>
+                        <small ng-show="frmUpdate.email.$error.required" class="form-text text-danger">Vui lòng nhập email</small>
+                        <small ng-show="frmUpdate.email.$error.email" class="form-text text-danger">Không đúng định dạng email</small>
+
+                    </div>
+                    <label class="bg-white light-blue-text rounded px-2" for=""> <i class="fas fa-transgender"></i>Giới tính:</label>
+                    <div class="form-check form-check-inline">
+                        <input ng-model="student.gender" type="radio" class="form-check-input" id="gender" name="gender" value="true">
+                        <label class="form-check-label light-blue-text" for="gender">Nam</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input ng-model="student.gender" type="radio" class="form-check-input" id="gender2" name="gender" value="false">
+                        <label class="form-check-label light-blue-text" for="gender2">Nữ</label>
+                    </div>
+
+
+                    <div class="md-form md-outline mt-0">
+                        <span class="form-text light-blue-text"><i class="fas fa-birthday-cake"></i> Ngày sinh</span>
+                        <input placeholder="yyyy-mm-dd" name="birthday" ng-model="student.birthday" type="text" id="birthday" class="form-control border-primary" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+                        <small ng-show="frmUpdate.birthday.$error.required" class="form-text text-danger">Vui lòng nhập ngày sinh</small>
+                        <small ng-show="frmUpdate.birthday.$error.pattern" class="form-text text-danger">Không đúng định dạng ngày</small>
+                    </div>
+                    <div class="md-form md-outline">
+                        <span class="form-text light-blue-text"><i class="fas fa-money-bill"></i> Học phí</span>
+                        <input placeholder=" " name="schoolfee" ng-model="student.schoolfee" type="text" id="schoolfee" class="form-control border-primary" required fee>
+                        <small ng-show="frmUpdate.schoolfee.$error.required" class="form-text text-danger">Vui lòng nhập học phí</small>
+                        <small ng-show="!frmUpdate.schoolfee.$error.required && frmUpdate.schoolfee.$invalid" class="form-text text-danger">Học phí phải hơn 2 triệu</small>
+
+                    </div>
+                    <div class="md-form md-outline">
+                        <span class="form-text light-blue-text"><i class="fas fa-money-bill"></i> Điểm</span>
+                        <input placeholder=" " name="mark" ng-model="student.marks" type="text" class="form-control border-primary" readonly>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button ng-click="update()" ng-disabled="frmUpdate.$invalid" class="btn aqua-gradient btn-rounded">Thay đổi</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</section>

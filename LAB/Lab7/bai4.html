@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Bai4 Lab7</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="Prods.js"></script>
+    <style>
+        ul li {
+            display: inline-block;
+            text-align: center;
+            position: relative;
+        }
+
+        .panel-footer {
+            text-align: center;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body ng-app="myapp">
+    <div class="container">
+        <div ng-controller="myctrl">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    DANH SÁCH HÀNG HÓA
+                </div>
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                        <tr>
+                            <th><a href="#" ng-click="sortBy('name')"> SẢN PHẨM</a></th>
+                            <th><a href="#" ng-click="sortBy('price')"> ĐƠN GIÁ</a></th>
+                            <th><a href="#" ng-click="sortBy('discount')"> GIẢM GIÁ</a></th>
+                            <th><a href="#" ng-click="sortBy('date')"> NGÀY</a></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="p in products|orderBy:prop|limitTo:8:begin">
+                            <td>{{p.name|uppercase}}</td>
+                            <td>{{p.price|currency}}</td>
+                            <td>{{p.discount|percentage:2}}</td>
+                            <td>{{p.date|date:"MMMM-dd, yyyy"}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="panel-footer"  >
+                    <ul class="pager justify-content-center">
+                        <button ng-click="first()" class="btn btn-primary">First</button>
+                        <button ng-click="prev()" class="btn btn-primary">Prev</button>
+                        <button ng-click="next()" class="btn btn-primary">Next</button>
+                        <button ng-click="last()" class="btn btn-primary">Last</button>
+                        <!-- <li><a href="#" ng-click="first()">
+                                <span class="glyphicon glyphicon-hand-up">first</span></a></li>
+                        <li><a href="#" ng-click="prev()">
+                                <span class="glyphicon glyphicon-hand-left">prev</span></a></li>
+                        <li><a href="#" ng-click="next()">
+                                <span class="glyphicon glyphicon-hand-right">next</span></a></li>
+                        <li><a href="#" ng-click="last()">
+                                <span class="glyphicon glyphicon-hand-down">last</span></a></li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var app = angular.module("myapp", []);
+        app.controller("myctrl", function ($scope, $http) {
+            $scope.products = list;
+
+            $scope.prop = 'name';
+            $scope.sortBy = function (prop) {
+                $scope.prop = prop;
+            }
+
+            $scope.begin = 0;
+            $scope.pageCount = Math.ceil($scope.products.length / 8);
+
+            $scope.first = function () {
+                $scope.begin = 0;
+            }
+            $scope.prev = function () {
+                if ($scope.begin > 0) {
+                    $scope.begin -= 8;
+                }
+            }
+            $scope.next = function () {
+                if ($scope.begin < ($scope.pageCount - 1) * 8) {
+                    $scope.begin += 8;
+                }
+            }
+            $scope.last = function () {
+                $scope.begin = ($scope.pageCount - 1) * 8;
+            }
+        });
+        app.filter('percentage', function ($filter) {
+            return function (input, decimals) {
+                return $filter('number')(input * 100, decimals) + '%';
+            };
+        });
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

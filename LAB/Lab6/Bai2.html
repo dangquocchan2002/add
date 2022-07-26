@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Bai2 Lab6</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container" ng-app="myapp" ng-controller="myctrl"> 
+        <form >
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">BÁN HÀNG GIẢI KHÁT</h2>
+                </div>
+                <table class="table">
+                    <tr>
+                        <th></th>
+                        <th>TÊN HÀNG</th>
+                        <TH>SỐ LƯỢNG</TH>
+                        <TH>ĐƠN GIÁ</TH>
+                        <TH>THÀNH TIỀN</TH>
+                    </tr>
+                    <tr ng-repeat="item in items" ng-init="iten.quantity=1">
+                        <td>
+                            <input type="checkbox" ng-model="item.buy"/>
+                        </td>
+                        <td ng-bind="item.name"></td>
+                        <td>
+                            <input type="number"
+                            ng-model="item.quantity" ng-disabled="!item.buy">
+                        </td>
+                        <td ng-bind="item.price|currency"></td>
+                        <td ng-bind="item.price*item.quantity|currency"></td>
+                    </tr>
+                </table>
+                <div class="panel-footer">
+                    TỔNG TIỀN: {{getAmount()|currency}}
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        var app = angular.module("myapp", []);
+          app.controller("myctrl", function ($scope){
+            $scope.items = [
+                {
+                    name: "Nước ngọt",
+                    price: 10000
+                },
+                {
+                    name: "Cà phê đen",
+                    price: 20000
+                },
+                {
+                    name: "Thuốc lá",
+                    price: 30000
+                }
+            ];
+            $scope.getAmount = function(){
+                var amount =0;
+                for (var i =0; i <$scope.items.length; i++){
+                    if($scope.items[i].buy){
+                        amount += $scope.items[i].price * $scope.items[i].quantity;
+                    }
+                }
+                return amount;
+            }
+          });
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

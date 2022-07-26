@@ -1,0 +1,62 @@
+<style>
+    body {
+        background-image: url(img/hb.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+</style>
+<section ng-show="student==null" class="rounded-lg mb-4" style="background-image: url(img/hinhnen.png); background-repeat: no-repeat;background-position: center; background-size: cover;">
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="row">
+
+            <div class="col-md-12 col-lg-4 offset-lg-1 text-center text-lg-left white-text mt-5 mt-md-0">
+                <h1 class="intro-title font-weight-bold mt-sm-5 mt-0 mb-4 wow fadeInLeft" data-wow-delay="0.3s">Trang thi trắc nghiệm trực tuyến {{}}</h1>
+                <h6 class="mb-4 wow fadeInLeft" data-wow-delay="0.3s">Để bắt đầu bài thi bạn vui lòng đăng nhập hoặc đăng kí.</h6>
+                <a ng-click="intro=0" href="#!login" class="btn btn-white btn-rounded orange-text font-weight-bold ml-lg-0 wow fadeInLeft" data-wow-delay="0.4s">Đăng nhập</a>
+                <a ng-click="intro=0" href="#!register" class="btn btn-outline-white btn-rounded font-weight-bold wow fadeInLeft" data-wow-delay="0.4s">Đăng kí</a>
+            </div>
+
+            <div class="col-md-12 col-lg-6 mt-4 mt-md-0 wow fadeInRight" data-wow-delay="0.3s">
+                <img src="https://mdbootstrap.com/img/Others/cards32.png" class="img-fluid">
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="dark-grey-text text-center p-5 rgba-white-strong">
+
+    <h3 class="font-weight-bold mb-4 pb-2">Danh Mục Thi</h3>
+    <p class="text-muted w-responsive mx-auto mb-5">Chọn phần thi theo bộ muôn bạn đang học.</p>
+
+    <!-- Grid row -->
+    <div class="row">
+
+        <div ng-repeat="sj in subjects| limitTo:4:cout" class="col-md-6 mb-4" style="min-height: 500px;">
+
+            <div class="view overlay rounded z-depth-1 d-flex justify-content-center white" style="background-image: url(img/H5tz.gif);background-position: center;background-repeat: repeat-x;background-size: 50%;">
+                <img src="img/logos/{{sj.Logo}}" class="img-fluid w-50" alt="Sample project image">
+                <a>
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+
+            <div class="px-3 pt-3 mx-1 mt-1 pb-0">
+                <a class="{{($index%2==0)?'orange-text':'deep-purple-text'}}">
+                    <h6 class="font-weight-bold mt-2 mb-3"><i class="fas fa-book-open pr-2"></i>Bài thi</h6>
+                </a>
+                <h4 class="font-weight-bold mb-3">{{sj.Name}}</h4>
+                <p class="text-muted">Bài thi gồm kiến thức đã học trong môn {{sj.Name}}</p>
+                <a href="#!viewtest/{{sj.Id}}" class="btn btn-success btn-rounded btn-md"> Chi tiết</a>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- Grid row -->
+    <div>
+        <button ng-click="prev()" class="btn btn-primary"><i class="fas fa-chevron-circle-left"></i></button>
+        <button ng-click="next()" class="btn btn-primary"><i class="fas fa-chevron-circle-right"></i></button>
+    </div>
+</section>

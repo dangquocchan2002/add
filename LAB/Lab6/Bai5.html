@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Bai5 Lab6</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      <div class="container" ng-app="myapp"> 
+        <div class="row">
+            <div class="col">
+                
+                    <div class="card">
+                        <div class="card-header">
+                            Custom Validation
+                        </div>
+
+                        <div class="card-body">
+                            <form name="polyForm">
+                                <label for="polynumber">Số Poly</label>
+                                <input type="number" ng-model="number" poly-number required
+                                class="form-control" name="polynumber" placeholder="Số Poly">
+                                <span ng-show="polyForm.polynumber.$invalid && polyForm.polynumber.$dirty"  >
+                                    Số này không chia hết cho 2 và 9</span>
+                            </form>
+                            
+                           
+                        </div>
+                        <div class="card-footer text-muted">
+                            <input class="btn btn-primary" type="button" style="background-color: rgb(63, 186, 235);" value="Kiểm tra">
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+
+          <!-- <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h2 class="panel-title">CUSTOM VALIDATION</h2>
+              </div>
+              <form class="panel-body" name="polyForm">
+                    <div class="form-group">
+                      <label for="polynumber">Số Poly</label>
+                      <input type="number" ng-model="polynumber" poly-number
+                        class="form-control" name="polynumber" id="polynumber" aria-describedby="polynumberhelpId" placeholder="Số Poly">
+                      <small ng-show="polyForm.polynumber.$invalid" id="polynumberhelpId" class="form-text text-muted">
+                          Số này không chia hết cho 2 và 9</small>
+                    </div>
+                
+              </form>
+              <div class="panel-footer">
+                  <input type="button" value="Kiểm tra">
+              </div>
+          </div> -->
+      </div>
+
+      <script>
+          var app = angular.module("myapp", []);
+          
+            app.directive("polyNumber", function (){
+                return {
+                    restrict : "A",
+                    require:  "ngModel" ,
+                    link: function (scope, element, attr, mCtrl){
+                        mCtrl.$parsers.push(function (value) {
+                            var number = parseInt(value);
+
+                            if(number % 2 == 0 & number % 9 == 0){
+                                mCtrl.$setValidity('charE', true);
+                            }else{
+                                mCtrl.$setValidity('charE', false);
+                            }
+                            return value;
+                        });
+                    }
+                } 
+            });
+      </script>
+      
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

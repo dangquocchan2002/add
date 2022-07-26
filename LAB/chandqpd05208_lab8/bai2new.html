@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Angular JS -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.js"></script>
+    <!-- Icon -->
+    <link rel="stylesheet" href="fontawesome-free-6.0.0-beta3-web/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/poly.css">
+    <script src="layout.js"></script>
+  </head>
+  <body ng-app="myapp">
+    <div class="container">
+        <header class="row">
+          <div class="shopping-mall">
+            <h1>Online shopping-mall</h1>
+            <h5>The center point of the professional programming</h5>
+          </div>
+          <img class="ml-auto mr-3" src="images/header-object.png" />
+        </header>
+  
+        <nav class="row">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark col">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#home"><i class="fas fa-home"></i> Trang chủ <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about"><i class="fas fa-list-alt"></i> Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact"><i class="fas fa-phone"></i> Liên hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#feedback"><i class="far fa-envelope"></i> Góp ý</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq"><i class="far fa-question-circle"></i> Hỏi đáp</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user"></i> Tài khoản
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#account/login">Đăng nhập</a>
+                        <a class="dropdown-item" href="#account/forgot">Quên mật khẩu</a>
+                        <a class="dropdown-item" href="#account/register">Đăng ký thành viên</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#account/logoff">Đăng xuất</a>
+                        <a class="dropdown-item" href="#account/change">Đổi mật khẩu</a>
+                        <a class="dropdown-item" href="#account/profile">Cập nhật hồ sơ</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#account/orders">Đơn hàng</a>
+                        <a class="dropdown-item" href="#account/products">Hàng đã mua</a>
+
+                      </div>
+                    </li>
+
+                  </ul>
+                  <ul class="navbar-nav ml-auto">
+                      <li class="nav-item">
+                          <a href="" class="nav-link">English</a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="" class="nav-link">Tiếng việt</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+        </nav>
+  
+        <div class="row">
+          <article class="col-sm-9">
+              <div ng-show="loading" class="pull-right label label-info">Loading...</div>
+              <ng-view></ng-view>
+          </article>
+          
+          <aside class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <img class="col-sm-5" src="images/shoppingcart.gif" alt="">
+                    <ul class="col-sm-7">
+                      <li>100 items</li>
+                      <li>$ 56.8</li>
+                      <li><a href="">View cart</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="card">
+                <div class="card-body">
+                  <form method="post">
+                    <input type="text" placeholder="Keywords" class="form-control">
+                  </form>
+                </div>
+              </div>
+    
+              <div class="card" data-toggle="collapse" href = "#chungloai">
+                <div class="card-header" style="cursor: pointer;">
+                  <span class="glyphicon glyphicon-th-list"></span>
+                  <strong>Chủng loại</strong>
+                </div>
+                <div class="card-body">
+                  <div class="list-group" id="chungloai">
+                    <a href="#category/mobile" class="list-group-item">Điện thoại di động</a>
+                    <a href="#category/laptop" class="list-group-item">Máy tính xách tay</a>
+                    <a href="#category/pc" class="list-group-item">Máy tính để bàn</a>
+                    <a href="#category/fan" class="list-group-item">Quạt máy</a>
+                    <a href="#category/TV" class="list-group-item">Tivi</a>
+                    <a href="#category/ref" class="list-group-item">Tủ lạnh</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card"  data-toggle="collapse" href = "#nhacungcap">
+                <div class="card-header" style="cursor: pointer;">
+                  <span class="glyphicon glyphicon-th-list"></span>
+                  <strong>Nhà cung cấp</strong>
+                </div>
+                <div class="card-body">
+                  <div class="list-group card-collapse" id="nhacungcap">
+                    <a href="#supplier/apple" class="list-group-item">Apple</a>
+                    <a href="#supplier/SamSung" class="list-group-item">SamSung</a>
+                    <a href="#supplier/Nokia" class="list-group-item">Nokia</a>
+                    <a href="#supplier/GL" class="list-group-item">GL</a>
+                    <a href="#supplier/Sony" class="list-group-item">Sony Ericson</a>
+                    <a href="#supplier/Dell" class="list-group-item">Dell</a>
+                    <a href="#supplier/Acer" class="list-group-item">Acer</a>
+                    <a href="#HP" class="list-group-item">HP</a>
+                    <a href="#Toshiba" class="list-group-item">Toshiba</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card"  data-toggle="collapse" href = "#hangdacbiet">
+                <div class="card-header" style="cursor: pointer;">
+                  <span class="glyphicon glyphicon-th-list"></span>
+                  <strong>Hàng đặc biệc</strong>
+                </div>
+                <div class="card-body">
+                  <div class="list-group card-collapse" id="hangdacbiet">
+                    <a href="#special/best" class="list-group-item">Hàng bán chạy</a>
+                    <a href="#special/lates" class="list-group-item">Hàng mới</a>
+                    <a href="#special/sales" class="list-group-item">Hàng giảm giá</a>
+                    <a href="#special/spe" class="list-group-item">Hàng đặc biệt</a>
+                    <a href="#special/views" class="list-group-item">Hàng xem nhiều</a>
+                  </div>
+                </div>
+              </div>
+          </aside>
+        </div>
+  
+        <footer class="row">
+          <div class="panel panel-defautl">
+            <div class="panel-heading text-center">
+              <p>FPT Polytechnic &copy; 2017. All right reserved.</p>
+            </div>
+          </div>
+        </footer>
+  
+      </div>
+    <script src="categoryCtrl.js"></script>
+    <script src="supplierCtrl.js"></script>
+    <script src="specialCtrl.js"></script>
+  
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/layout.js"></script>
+    <script src="js/category-ctrl.js"></script>
+    <script src="js/supplier-ctrl.js"></script>
+    <script src="js/special-ctrl.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
